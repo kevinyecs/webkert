@@ -1,0 +1,18 @@
+<mat-card *ngIf="servicecatalog"  >
+    <mat-card-header>
+      <mat-card-title>{{servicecatalog.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{servicecatalog.description}}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>{{servicecatalog.href}}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>{{servicecatalog.version}}</p>
+    </mat-card-content>
+    <mat-icon aria-hidden="false" aria-label="trash" (click)="deleteService(servicecatalog.id)">delete_outline</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="trash" (click)="openUpdateDialog(servicecatalog.id)">edit</mat-icon>
+    
+ 
+  </mat-card>

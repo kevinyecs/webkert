@@ -1,0 +1,43 @@
+<form [formGroup]="form">
+    <h3>Add New Service Catalog</h3>
+    <mat-form-field class="max-width">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Pl. https//xdd" focus formControlName="name" required>
+  </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Leírás</mat-label>
+        <input matInput placeholder="Pl. nagyon jó" focus formControlName="description" required>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Href</mat-label>
+        <input matInput placeholder="Pl. https//xdd" focus formControlName="href" required>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Version</mat-label>
+      <input matInput placeholder="1.0" focus formControlName="version" required>
+  </mat-form-field>
+  <mat-form-field class="max-width">
+    <mat-label>Lifecycle Status</mat-label>
+    <input matInput placeholder="Active" focus formControlName="lifecycleStatus" required>
+</mat-form-field>
+
+    <mat-form-field appearance="fill" class="max-width">
+      <mat-label>Last Update</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="lastUpdate" autocomplete="22/22/2222">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="max-width">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker2">
+        <input matStartDate placeholder="Start date" formControlName="validForStart">
+        <input matEndDate placeholder="End date" formControlName="validForEnd">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker2></mat-date-range-picker>
+    </mat-form-field>
+    <div style="display: flex; justify-content: flex-end;">
+        <button mat-button (click)="dialogRef.close()" class="margin-right">MÉGSEM</button>
+        <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">FELVÉTEL</button>
+      </div>
+</form>
