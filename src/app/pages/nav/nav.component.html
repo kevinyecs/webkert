@@ -1,15 +1,18 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <a mat-button [routerLink]="[ '/' ]">
-      Service Catalog API
+      ServiceCatalog 
     </a>
-    <button mat-button *ngFor="let item of categories" [routerLink]="[ item.url ]" routerLinkActive="active">
-      {{item.title}}&nbsp;
-      <mat-icon>{{item.icon}}</mat-icon>
-    </button>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <button mat-button *ngFor="let item of categories" [routerLink]="[ item.url ]" routerLinkActive="active">
+        {{item.title}}&nbsp;
+        <mat-icon>{{item.icon}}</mat-icon>
+      </button>
+    </div>
+
     <span style="flex: 1 1;"></span>
-    <button mat-button [matMenuTriggerFor]="menu">
-      Tools&nbsp;
+    <button mat-button [matMenuTriggerFor]="menu" fxHide="false" >
+      <mat-icon>menu</mat-icon>
       <mat-icon>arrow_drop_down</mat-icon>
     </button>
 
@@ -22,10 +25,15 @@
         <mat-icon>settings</mat-icon>
         <span>Beállítások</span>
       </button>
+      <button mat-button *ngFor="let item of categories" [routerLink]="[ item.url ]" routerLinkActive="active">
+        {{item.title}}&nbsp;
+        <mat-icon>{{item.icon}}</mat-icon>
+      </button>
       <button mat-menu-item (click)=logout()>
         <mat-icon>arrow_back</mat-icon>
         <span>Kijelentkezés</span>
       </button>
+
     </mat-menu>
 
   </mat-toolbar-row>

@@ -8,7 +8,7 @@ const routes: Routes = [
   {
       path: '',
       component: SplashComponent,
-      data: { title: 'Főoldal - Service Catalog' }
+      data: { title: 'Firestore - Lekérdezések' }
   }
 ];
 

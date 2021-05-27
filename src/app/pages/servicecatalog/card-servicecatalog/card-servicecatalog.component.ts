@@ -4,6 +4,7 @@ import { FbBaseService } from 'src/app/services/fb-base.service';
 import { ServiceCatalog } from 'src/app/shared/models/servicecatalog.model';
 import { UpdateServiceComponent } from '../update-service/update-service.component';
 
+
 @Component({
   selector: 'app-card-servicecatalog',
   templateUrl: './card-servicecatalog.component.html',
@@ -11,7 +12,9 @@ import { UpdateServiceComponent } from '../update-service/update-service.compone
 })
 export class CardServicecatalogComponent implements OnInit {
   @Input() servicecatalog?: ServiceCatalog;
-  constructor(private service: FbBaseService<ServiceCatalog>, private dialog: MatDialog) { }
+  private values: any;
+  constructor(private service: FbBaseService<ServiceCatalog>, private dialog: MatDialog
+    ) { }
 
 
   

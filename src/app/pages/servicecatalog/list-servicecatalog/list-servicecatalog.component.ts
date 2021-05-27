@@ -18,7 +18,7 @@ export class ListServicecatalogComponent implements OnInit {
   list: Observable<ServiceCatalog[]> | null = null;
 
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+
   filteredOptions: Observable<string[]> | null = null;
   constructor(private service: FbBaseService<ServiceCatalog>, private dialog: MatDialog) { }
 
@@ -27,8 +27,7 @@ export class ListServicecatalogComponent implements OnInit {
     this.filteredOptions = this.myControl.valueChanges
     .pipe(
       startWith(''),
-      debounceTime(300),
-      map(value => this._filter(value))
+      debounceTime(300)
     );
     
   }
@@ -44,7 +43,8 @@ export class ListServicecatalogComponent implements OnInit {
       servicecatalog.validFor = [start, end];
       delete servicecatalog.validForStart ;
       delete servicecatalog.validForEnd ;
-
+      delete servicecatalog.category;
+      delete servicecatalog.relatedParty;
       if(servicecatalog?.name){
         console.log(servicecatalog?.name)
         this.service.add('servicecatalogs', servicecatalog);
@@ -59,10 +59,7 @@ export class ListServicecatalogComponent implements OnInit {
 
 
 
-   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
+
 }
 
 

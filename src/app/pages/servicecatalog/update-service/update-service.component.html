@@ -2,28 +2,28 @@
     <h3>Update Service Catalog</h3>
     <mat-form-field class="max-width">
       <mat-label>Name</mat-label>
-      <input matInput placeholder="Pl. https//xdd" focus formControlName="name" required>
+      <input matInput placeholder="Pl. https//xdd" focus formControlName="name" required [value]="values.name">
   </mat-form-field>
     <mat-form-field class="max-width">
-        <mat-label>Leírás</mat-label>
-        <input matInput placeholder="Pl. nagyon jó" focus formControlName="description" required>
+        <mat-label>Leírás </mat-label>
+        <input matInput placeholder="Pl. nagyon jó" focus formControlName="description" required [value]="values.description">
     </mat-form-field>
     <mat-form-field class="max-width">
-        <mat-label></mat-label>
-        <input matInput placeholder="Pl. https//xdd" focus formControlName="href" required>
+        <mat-label>Href</mat-label>
+        <input matInput placeholder="Pl. https//xdd" focus formControlName="href" required [value]="values.href">
     </mat-form-field>
     <mat-form-field class="max-width">
       <mat-label>Version</mat-label>
-      <input matInput placeholder="1.0" focus formControlName="version" required>
+      <input matInput placeholder="1.0" focus formControlName="version" required [value]="values.version">
   </mat-form-field>
   <mat-form-field class="max-width">
     <mat-label>Lifecycle Status</mat-label>
-    <input matInput placeholder="Active" focus formControlName="lifecycleStatus" required>
+    <input matInput placeholder="Active" focus formControlName="lifecycleStatus" required [value]="values.lifecycleStatus">
 </mat-form-field>
 
     <mat-form-field appearance="fill" class="max-width">
       <mat-label>Last Update</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="lastUpdate" autocomplete="22/22/2222">
+      <input matInput [matDatepicker]="picker" formControlName="lastUpdate" autocomplete="22/22/2222" [value]="values.lastUpdate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>

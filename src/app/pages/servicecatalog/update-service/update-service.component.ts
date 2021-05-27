@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FbBaseService } from 'src/app/services/fb-base.service';
 import { ServiceCatalog } from 'src/app/shared/models/servicecatalog.model';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-update-service',
@@ -10,6 +12,7 @@ import { ServiceCatalog } from 'src/app/shared/models/servicecatalog.model';
   styleUrls: ['./update-service.component.scss']
 })
 export class UpdateServiceComponent implements OnInit {
+  public values: any;
   @Input() servicecatalog?: ServiceCatalog;
   form: FormGroup = new FormGroup({
     id: new FormControl(''),
@@ -25,9 +28,15 @@ export class UpdateServiceComponent implements OnInit {
     version: new FormControl('')
   });
 
-  constructor(private service: FbBaseService<ServiceCatalog>,public dialogRef: MatDialogRef<UpdateServiceComponent>) { }
+  
+
+  constructor(private service: FbBaseService<ServiceCatalog>
+    ,public dialogRef: MatDialogRef<UpdateServiceComponent>
+    , @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
+    this.values = this.data;
+    
   }
 
 }

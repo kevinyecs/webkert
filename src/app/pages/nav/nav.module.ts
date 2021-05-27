@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavComponent } from './nav.component';
 import { RouterModule } from '@angular/router';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    FlexLayoutModule
   ],
   exports: [NavComponent],
 })

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, CollectionReference, Query } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { RelatedParty } from '../shared/models/relatedparty.model';
+
 
 @Injectable({
   providedIn: 'root'
